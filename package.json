@@ -1,0 +1,27 @@
+{
+  "name": "gallery-oop",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "npx prettier . --write && npx eslint --fix",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.js": "npm run format"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "3.5.3",
+    "vite": "^6.2.0"
+  }
+}
