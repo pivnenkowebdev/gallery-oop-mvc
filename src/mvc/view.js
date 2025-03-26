@@ -1,14 +1,14 @@
-import Creator from "../utilities/creator.js";
-
-const testParams = {
-  tagName: "div",
-  classList: ["a", "b", "c"],
-};
+import Header from "../components/header";
 
 export default class View {
+  #containerApp = document.body;
   constructor() {
-    this.testElement = new Creator(testParams);
-    console.log(this.testElement.getElement());
+    this.header = new Header();
+    this.#showInterface();
+  }
+
+  #showInterface() {
+    this.#containerApp.append(this.header.getElement());
   }
 }
 
