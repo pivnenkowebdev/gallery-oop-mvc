@@ -2,6 +2,7 @@ export default class Creator {
   constructor(paramsObject) {
     this.parametrs = paramsObject;
     this.element = this.#createElement();
+    this.childs = [];
     if (this.element) {
       this.#setStyle();
       this.#setAttributes();
@@ -33,6 +34,18 @@ export default class Creator {
     if (this.element && this.parametrs.text) {
       this.element.innerText = this.parametrs.text;
     }
+  }
+
+  _addChildsElement() {
+    if (!Array.isArray(this.childs)) return;
+
+    this.childs.forEach((elem) => {
+      if (elem instanceof Creator) {
+        this.element.append(elem.getElement());
+      } else if (elem instanceof HTMLElement) {
+        this.element.append(elem);
+      }
+    });
   }
 
   getElement() {

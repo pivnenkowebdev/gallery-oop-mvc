@@ -1,15 +1,13 @@
-import Header from "../components/header";
+import Header from "../components/header.js";
 
 export default class View {
   #containerApp = document.body;
   constructor() {
-    this.header = new Header();
+    this.header = new Header().getElement();
     this.#showInterface();
   }
 
   #showInterface() {
-    this.#containerApp.append(this.header.getElement());
+    this.#containerApp.append(this.header);
   }
 }
-
-// 1. набить компонентами

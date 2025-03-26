@@ -1,16 +1,12 @@
 import Creator from "../utilities/creator.js";
 import { headerParams } from "./header-params.js";
+import ListButtons from "./list-buttons.js";
 
-export default class Header {
+export default class Header extends Creator {
   constructor() {
-    this.element = new Creator(headerParams).getElement();
-  }
-
-  getElement() {
-    return this.element;
+    super(headerParams);
+    this.listButtons = new ListButtons();
+    this.childs = [this.listButtons];
+    this._addChildsElement();
   }
 }
-
-// 1. сюда вставить компоненты:
-// - список кнопок
-// - инпут
