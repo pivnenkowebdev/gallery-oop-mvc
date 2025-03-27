@@ -5,4 +5,9 @@ const headerParams = {
   classList: [style.header],
 };
 
-export { headerParams };
+const headerContentParams = {
+  tagName: "div",
+  classList: [style.content],
+};
+
+export { headerParams, headerContentParams };
