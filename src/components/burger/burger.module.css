@@ -1,0 +1,39 @@
+.burger {
+    width: 40px;
+    height: 40px;
+    /* background-color: rgb(26, 123, 207); */
+    flex-shrink: 0;
+    display: none;
+    position: relative;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+}
+
+.burgerTopLine,
+.burgerMiddleLine,
+.burgerBottomLine {
+    width: 40px;
+    height: 4px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.burgerTopLine {
+    top: 30%;
+}
+
+.burgerMiddleLine {
+    top: 50%;
+}
+
+.burgerBottomLine {
+    top: 70%;
+}

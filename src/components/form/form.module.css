@@ -1,49 +1,49 @@
 .form {
-    padding: 6px 8px;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: background-color 0.5s;
-    backdrop-filter: blur(5px);
-    flex-shrink: 0;
+  padding: 6px 8px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.5s;
+  backdrop-filter: blur(5px);
+  flex-shrink: 0;
 }
 
 @media (hover: hover) {
-    .form:hover {
-        background-color: rgba(255, 255, 255, 0.6);
-    }
+  .form:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 }
 
 .input {
-    border: none;
-    outline: none;
-    padding: 2px 8px 2px 0;
-    color: #000;
-    font-weight: 600;
-    font-size: 20px;
+  border: none;
+  outline: none;
+  padding: 2px 8px 2px 0;
+  color: #000;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .input::placeholder {
-    color: #4d4b4b;
+  color: #4d4b4b;
 }
 
 .form:has(input:focus) {
-    background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background-image: url(/lupa.svg);
-    background-size: 55%;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    transition: transform 0.5s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-image: url(/lupa.svg);
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
 .btn:hover {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
