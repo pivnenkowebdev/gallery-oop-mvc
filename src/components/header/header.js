@@ -1,6 +1,6 @@
-import Creator from "../utilities/creator.js";
+import Creator from "../../utilities/creator.js";
+import ListButtons from "../list-btns/list-buttons.js";
 import { headerParams } from "./header-params.js";
-import ListButtons from "./list-buttons.js";
 
 export default class Header extends Creator {
   constructor() {

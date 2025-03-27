@@ -1,4 +1,4 @@
-import Header from "../components/header.js";
+import Header from "../components/header/header";
 
 export default class View {
   #containerApp = document.body;

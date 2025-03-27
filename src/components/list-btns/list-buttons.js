@@ -1,5 +1,9 @@
-import Creator from "../utilities/creator.js";
-import { btnsParams, listButtonsParams } from "./list-buttons-params.js";
+import {
+  btnsParams,
+  listButtonsParams,
+} from "../list-btns/list-buttons-params.js";
+
+import Creator from "../../utilities/creator.js";
 
 export default class ListButtons extends Creator {
   constructor() {
