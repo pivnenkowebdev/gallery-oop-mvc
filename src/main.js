@@ -1,3 +1,6 @@
+import "normalize.css";
+import "./main.css";
+
 import Controller from "./mvc/controller.js";
 import Model from "./mvc/model.js";
 import View from "./mvc/view.js";

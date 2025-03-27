@@ -1,6 +1,8 @@
+import style from "./header.module.css";
+
 const headerParams = {
   tagName: "header",
-  classList: ["header"],
+  classList: [style.header],
 };
 
 export { headerParams };

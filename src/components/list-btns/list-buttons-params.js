@@ -22,7 +22,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "israel",
+    imgSrc: "israel.svg",
   },
   {
     tagName: "button",
@@ -31,7 +31,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "georgia",
+    imgSrc: "georgia.svg",
   },
   {
     tagName: "button",
@@ -40,7 +40,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "japan",
+    imgSrc: "japan.svg",
   },
   {
     tagName: "button",
@@ -49,7 +49,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "ukraine",
+    imgSrc: "ukraine.svg",
   },
   {
     tagName: "button",
@@ -58,7 +58,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "britain",
+    imgSrc: "britain.svg",
   },
   {
     tagName: "button",
@@ -67,7 +67,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "india",
+    imgSrc: "india.svg",
   },
   {
     tagName: "button",
@@ -76,7 +76,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "korea",
+    imgSrc: "korea.svg",
   },
   {
     tagName: "button",
@@ -85,7 +85,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "turkey",
+    imgSrc: "turkey.svg",
   },
   {
     tagName: "button",
@@ -94,7 +94,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "china",
+    imgSrc: "china.svg",
   },
   {
     tagName: "button",
@@ -103,7 +103,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "egypt",
+    imgSrc: "egypt.svg",
   },
   {
     tagName: "button",
@@ -112,7 +112,7 @@ const btnsParams = [
       "data-btn": "",
     },
     classList: ["btnAction"],
-    imgSrc: "greece",
+    imgSrc: "greece.svg",
   },
 ];
 
