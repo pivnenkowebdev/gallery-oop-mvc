@@ -16,5 +16,6 @@
 @media (max-width: 768px) {
   .content {
     position: relative;
+    gap: 40px;
   }
 }
