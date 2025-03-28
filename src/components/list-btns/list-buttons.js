@@ -3,6 +3,8 @@ import {
   listButtonsParams,
 } from "../list-btns/list-buttons-params.js";
 
+import style from "./buttons.module.css";
+
 import Creator from "../../utilities/creator.js";
 
 export default class ListButtons extends Creator {
@@ -25,5 +27,9 @@ export default class ListButtons extends Creator {
       item.append(btn.getElement());
       this.childs.push(item);
     });
+  }
+
+  show() {
+    this.element.classList.toggle(style.open);
   }
 }
