@@ -27,7 +27,9 @@
 
 .burgerTopLine {
   top: 30%;
-  transition: top 0.3s 0.3s, transform 0.3s;
+  transition:
+    top 0.3s 0.3s,
+    transform 0.3s;
 }
 
 .burgerMiddleLine {
@@ -37,13 +39,17 @@
 
 .burgerBottomLine {
   top: 70%;
-  transition: top 0.3s 0.3s, transform 0.3s;
+  transition:
+    top 0.3s 0.3s,
+    transform 0.3s;
 }
 
 .burger.open .burgerTopLine {
   top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  transition: top 0.3s, transform 0.3s 0.3s;
+  transition:
+    top 0.3s,
+    transform 0.3s 0.3s;
 }
 
 .burger.open .burgerMiddleLine {
@@ -53,5 +59,7 @@
 .burger.open .burgerBottomLine {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
-  transition: top 0.3s, transform 0.3s 0.3s;
+  transition:
+    top 0.3s,
+    transform 0.3s 0.3s;
 }

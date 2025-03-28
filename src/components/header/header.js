@@ -15,14 +15,5 @@ export default class Header extends Creator {
     this.content._addChildsElement();
     this.childs.push(this.content);
     this._addChildsElement();
-    this._setEventListeners();
-  }
-  _setEventListeners() {
-    this.element.addEventListener("click", (e) => {
-      if (e.target.closest("#burger")) {
-        this.listButtons.show();
-        this.burger._shangeStyle();
-      }
-    });
   }
 }
