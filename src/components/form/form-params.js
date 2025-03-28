@@ -10,6 +10,7 @@ const inputParams = {
   classList: [style.input],
   attr: {
     placeholder: "Search...",
+    name: "search",
   },
 };
 

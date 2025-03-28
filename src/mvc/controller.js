@@ -11,5 +11,12 @@ export default class Controller {
         this.view.header.burger._shangeStyle();
       }
     });
+
+    this.view.header.form.element.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const dataFromForm = new FormData(e.target).get("search");
+      const result = await this.model.getData(dataFromForm);
+      console.log(result);
+    });
   }
 }
