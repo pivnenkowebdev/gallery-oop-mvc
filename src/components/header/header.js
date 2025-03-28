@@ -21,6 +21,7 @@ export default class Header extends Creator {
     this.element.addEventListener("click", (e) => {
       if (e.target.closest("#burger")) {
         this.listButtons.show();
+        this.burger._shangeStyle();
       }
     });
   }

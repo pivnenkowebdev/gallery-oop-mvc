@@ -5,6 +5,7 @@ import {
   burgerParams,
   burgerTopLineParams,
 } from "./burger-params.js";
+import style from "./burger.module.css";
 
 export default class Burger extends Creator {
   constructor() {
@@ -14,5 +15,9 @@ export default class Burger extends Creator {
     this.bottomLine = new Creator(burgerBottomLineParams);
     this.childs = [this.topLine, this.middleLine, this.bottomLine];
     this._addChildsElement();
+  }
+
+  _shangeStyle() {
+    this.element.classList.toggle(style.open);
   }
 }

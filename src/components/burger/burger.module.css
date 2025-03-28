@@ -1,7 +1,6 @@
 .burger {
   width: 40px;
   height: 40px;
-  /* background-color: rgb(26, 123, 207); */
   flex-shrink: 0;
   display: none;
   position: relative;
@@ -28,12 +27,31 @@
 
 .burgerTopLine {
   top: 30%;
+  transition: top 0.3s 0.3s, transform 0.3s;
 }
 
 .burgerMiddleLine {
+  transition: transform 0.3s 0.3s;
   top: 50%;
 }
 
 .burgerBottomLine {
   top: 70%;
+  transition: top 0.3s 0.3s, transform 0.3s;
+}
+
+.burger.open .burgerTopLine {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: top 0.3s, transform 0.3s 0.3s;
+}
+
+.burger.open .burgerMiddleLine {
+  transform: scale(0);
+}
+
+.burger.open .burgerBottomLine {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: top 0.3s, transform 0.3s 0.3s;
 }
