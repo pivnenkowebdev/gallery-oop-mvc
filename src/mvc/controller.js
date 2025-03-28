@@ -5,18 +5,25 @@ export default class Controller {
     this.#setEventListeners();
   }
   #setEventListeners() {
-    this.view.header.element.addEventListener("click", (e) => {
-      if (e.target.closest("#burger")) {
-        this.view.header.listButtons.show();
-        this.view.header.burger._shangeStyle();
-      }
-    });
+    this.view.header.element.addEventListener("click", (e) =>
+      this.#toggleMobileMenu(e),
+    );
+    this.view.header.form.element.addEventListener("submit", async (e) =>
+      this.#getData(e),
+    );
+  }
 
-    this.view.header.form.element.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const dataFromForm = new FormData(e.target).get("search");
-      const result = await this.model.getData(dataFromForm);
-      console.log(result);
-    });
+  #toggleMobileMenu(e) {
+    if (e.target.closest("#burger")) {
+      this.view.header.listButtons.show();
+      this.view.header.burger._shangeStyle();
+    }
+  }
+
+  async #getData(e) {
+    e.preventDefault();
+    const dataFromForm = new FormData(e.target).get("search");
+    const result = await this.model.getData(dataFromForm);
+    console.log(result);
   }
 }
