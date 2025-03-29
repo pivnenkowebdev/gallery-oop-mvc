@@ -18,10 +18,18 @@ export default class Model {
       }
 
       const data = await response.json();
-      return data;
+
+      return data.results;
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
       return null;
     }
   }
 }
+
+// вытащить данные путей из JSON с помощьюспециальных методов в модели и передать в вью
+
+// 1. дефолтный запрос
+// 2. создание объекта списка картинок и его методов
+// 3. анимация загрузки
+// 4. пагинация (загрузить еще)
