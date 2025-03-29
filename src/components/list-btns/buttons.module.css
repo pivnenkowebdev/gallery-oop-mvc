@@ -6,7 +6,7 @@
   max-width: 800px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .list {
     padding: 20px;
     position: fixed;

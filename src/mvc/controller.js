@@ -4,7 +4,7 @@ export default class Controller {
     this.view = view;
     this.view.header.form.input.element.value = this.model.defaultValue;
     this.#setEventListeners();
-    this.queryHelper();
+    this.queryHelper(this.model.defaultValue);
   }
 
   #setEventListeners() {
@@ -15,6 +15,9 @@ export default class Controller {
       e.preventDefault();
       this.view.listImages.data = await this.#getData(e);
       this.view.listImages.render();
+    });
+    this.view.header.listButtons.element.addEventListener("click", (e) => {
+      this.btnChoiceHandler(e);
     });
   }
 
@@ -31,10 +34,15 @@ export default class Controller {
     return result;
   }
 
-  async queryHelper() {
-    this.view.listImages.data = await this.model.getData(
-      this.model.defaultValue,
-    );
+  async queryHelper(currentQuery) {
+    this.view.listImages.data = await this.model.getData(currentQuery);
     this.view.listImages.render();
+  }
+
+  async btnChoiceHandler(e) {
+    const isBtn = e.target.closest("[data-btn]");
+    if (isBtn) {
+      await this.queryHelper(isBtn.dataset.btn);
+    }
   }
 }

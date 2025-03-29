@@ -8,7 +8,6 @@ export default class ListImages extends Creator {
   }
 
   render() {
-    console.log(this.data);
     this.#clean();
     const template = document.createDocumentFragment();
     if (this.data.length > 0) {

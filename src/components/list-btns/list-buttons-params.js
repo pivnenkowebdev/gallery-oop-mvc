@@ -12,7 +12,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "russia",
     },
     classList: [style.btn],
     imgSrc: "russia.svg",
@@ -20,7 +20,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "israel",
     },
     classList: [style.btn],
     imgSrc: "israel.svg",
@@ -28,7 +28,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "georgia",
     },
     classList: [style.btn],
     imgSrc: "georgia.svg",
@@ -36,7 +36,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "japan",
     },
     classList: [style.btn],
     imgSrc: "japan.svg",
@@ -44,7 +44,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "ukraine",
     },
     classList: [style.btn],
     imgSrc: "ukraine.svg",
@@ -52,7 +52,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "britain",
     },
     classList: [style.btn],
     imgSrc: "britain.svg",
@@ -60,7 +60,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "india",
     },
     classList: [style.btn],
     imgSrc: "india.svg",
@@ -68,7 +68,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "korea",
     },
     classList: [style.btn],
     imgSrc: "korea.svg",
@@ -76,7 +76,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "turkey",
     },
     classList: [style.btn],
     imgSrc: "turkey.svg",
@@ -84,7 +84,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "china",
     },
     classList: [style.btn],
     imgSrc: "china.svg",
@@ -92,7 +92,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "egypt",
     },
     classList: [style.btn],
     imgSrc: "egypt.svg",
@@ -100,7 +100,7 @@ const btnsParams = [
   {
     tagName: "button",
     attr: {
-      "data-btn": "",
+      "data-btn": "greece",
     },
     classList: [style.btn],
     imgSrc: "greece.svg",
