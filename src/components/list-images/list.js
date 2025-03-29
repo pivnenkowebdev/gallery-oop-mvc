@@ -15,10 +15,8 @@ export default class ListImages extends Creator {
       this.data.forEach((item) => {
         const li = new Creator(itemParams);
         imgParams.attr.src = item.urls.regular;
-
         const img = new Creator(imgParams);
         li.getElement().append(img.getElement());
-        console.log(img.getElement());
         template.append(li.getElement());
         this.element.append(template);
       });

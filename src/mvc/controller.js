@@ -2,7 +2,9 @@ export default class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.view.header.form.input.element.value = this.model.defaultValue;
     this.#setEventListeners();
+    this.queryHelper();
   }
 
   #setEventListeners() {
@@ -10,6 +12,7 @@ export default class Controller {
       this.#toggleMobileMenu(e),
     );
     this.view.header.form.element.addEventListener("submit", async (e) => {
+      e.preventDefault();
       this.view.listImages.data = await this.#getData(e);
       this.view.listImages.render();
     });
@@ -23,9 +26,15 @@ export default class Controller {
   }
 
   async #getData(e) {
-    e.preventDefault();
     const dataFromForm = new FormData(e.target).get("search");
     const result = await this.model.getData(dataFromForm);
     return result;
+  }
+
+  async queryHelper() {
+    this.view.listImages.data = await this.model.getData(
+      this.model.defaultValue,
+    );
+    this.view.listImages.render();
   }
 }
