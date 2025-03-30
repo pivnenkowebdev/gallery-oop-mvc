@@ -326,9 +326,9 @@ class gt extends n {
       this._addChildsElement();
   }
 }
-const pt = "_list_y8oog_1",
-  bt = "_item_y8oog_10",
-  ft = "_img_y8oog_25",
+const pt = "_list_h1y3p_1",
+  bt = "_item_h1y3p_16",
+  ft = "_img_h1y3p_31",
   y = { list: pt, item: bt, img: ft },
   Lt = { tagName: "ul", classList: [y.list] },
   _t = { tagName: "li", classList: [y.item] },
@@ -383,4 +383,4 @@ class vt {
 }
 console.log(1);
 new vt();
-//# sourceMappingURL=index-D3s-AUPq.js.map
+//# sourceMappingURL=index-BcjXkfku.js.map

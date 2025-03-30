@@ -30,13 +30,17 @@ export default class Controller {
 
   async #getData(e) {
     const dataFromForm = new FormData(e.target).get("search");
+    this.view.addLoader();
     const result = await this.model.getData(dataFromForm);
+    this.view.removeLoader();
     return result;
   }
 
   async queryHelper(currentQuery) {
+    this.view.addLoader();
     this.view.listImages.data = await this.model.getData(currentQuery);
     this.view.listImages.render();
+    this.view.removeLoader();
   }
 
   async btnChoiceHandler(e) {
