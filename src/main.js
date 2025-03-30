@@ -12,9 +12,6 @@ class AppInit {
     this.controller = new Controller(this.model, this.view);
   }
 }
+console.log(1);
 
 new AppInit();
-
-// 1.перенести бургер в MVC
-// 2.написать в модели методы для создания запроса (безопасный ключ)
-// 3. прикрутить модель к MVC
