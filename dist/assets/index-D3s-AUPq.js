@@ -1,12 +1,12 @@
-var D = Object.defineProperty;
+var F = Object.defineProperty;
 var E = (s) => {
   throw TypeError(s);
 };
-var F = (s, t, e) =>
+var K = (s, t, e) =>
   t in s
-    ? D(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e })
+    ? F(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e })
     : (s[t] = e);
-var f = (s, t, e) => F(s, typeof t != "symbol" ? t + "" : t, e),
+var L = (s, t, e) => K(s, typeof t != "symbol" ? t + "" : t, e),
   N = (s, t, e) => t.has(s) || E("Cannot " + e);
 var _ = (s, t, e) => (
     N(s, t, "read from private field"), e ? e.call(s) : t.get(s)
@@ -23,33 +23,33 @@ var c = (s, t, e) => (N(s, t, "access private method"), e);
   if (t && t.supports && t.supports("modulepreload")) return;
   for (const a of document.querySelectorAll('link[rel="modulepreload"]')) o(a);
   new MutationObserver((a) => {
-    for (const n of a)
-      if (n.type === "childList")
-        for (const L of n.addedNodes)
-          L.tagName === "LINK" && L.rel === "modulepreload" && o(L);
+    for (const i of a)
+      if (i.type === "childList")
+        for (const f of i.addedNodes)
+          f.tagName === "LINK" && f.rel === "modulepreload" && o(f);
   }).observe(document, { childList: !0, subtree: !0 });
   function e(a) {
-    const n = {};
+    const i = {};
     return (
-      a.integrity && (n.integrity = a.integrity),
-      a.referrerPolicy && (n.referrerPolicy = a.referrerPolicy),
+      a.integrity && (i.integrity = a.integrity),
+      a.referrerPolicy && (i.referrerPolicy = a.referrerPolicy),
       a.crossOrigin === "use-credentials"
-        ? (n.credentials = "include")
+        ? (i.credentials = "include")
         : a.crossOrigin === "anonymous"
-          ? (n.credentials = "omit")
-          : (n.credentials = "same-origin"),
-      n
+          ? (i.credentials = "omit")
+          : (i.credentials = "same-origin"),
+      i
     );
   }
   function o(a) {
     if (a.ep) return;
     a.ep = !0;
-    const n = e(a);
-    fetch(a.href, n);
+    const i = e(a);
+    fetch(a.href, i);
   }
 })();
 var m, P, B, A;
-class K {
+class O {
   constructor(t, e) {
     h(this, m);
     (this.model = t),
@@ -90,9 +90,9 @@ class K {
     const e = new FormData(t.target).get("search");
     return await this.model.getData(e);
   });
-class O {
+class k {
   constructor() {
-    f(this, "defaultValue", "food");
+    L(this, "defaultValue", "food");
     (this.API_KEY = "GhKsB5sAtKrUEiAAWKJYM56CueNnuUoIms_7HaILTUw"),
       (this.BASE_URL = "https://api.unsplash.com/search/photos");
   }
@@ -152,7 +152,7 @@ const v = class v {
       this.parametrs.text &&
       (this.element.innerText = this.parametrs.text);
   });
-let i = v;
+let n = v;
 const q = "_burger_14bdh_1",
   U = "_burgerTopLine_14bdh_16",
   V = "_burgerMiddleLine_14bdh_17",
@@ -169,12 +169,12 @@ const q = "_burger_14bdh_1",
   R = { tagName: "span", classList: [u.burgerTopLine] },
   J = { tagName: "span", classList: [u.burgerMiddleLine] },
   W = { tagName: "span", classList: [u.burgerBottomLine] };
-class z extends i {
+class z extends n {
   constructor() {
     super(G),
-      (this.topLine = new i(R)),
-      (this.middleLine = new i(J)),
-      (this.bottomLine = new i(W)),
+      (this.topLine = new n(R)),
+      (this.middleLine = new n(J)),
+      (this.bottomLine = new n(W)),
       (this.childs = [this.topLine, this.middleLine, this.bottomLine]),
       this._addChildsElement();
   }
@@ -197,19 +197,19 @@ const Q = "_form_1if6l_1",
     classList: [w.btn],
     attr: { type: "submit", value: "" },
   };
-class at extends i {
+class at extends n {
   constructor() {
     super(tt),
-      (this.input = new i(et)),
-      (this.btnSubmit = new i(st)),
+      (this.input = new n(et)),
+      (this.btnSubmit = new n(st)),
       (this.childs = [this.input, this.btnSubmit]),
       this._addChildsElement();
   }
 }
-const nt = "_list_1akll_1",
-  it = "_open_1akll_22",
-  rt = "_btn_1akll_40",
-  r = { list: nt, open: it, btn: rt },
+const it = "_list_ffwoa_1",
+  nt = "_open_ffwoa_22",
+  rt = "_btn_ffwoa_40",
+  r = { list: it, open: nt, btn: rt },
   ot = { tagName: "ul", attr: { id: "listButtons" }, classList: [r.list] },
   ct = [
     {
@@ -286,7 +286,7 @@ const nt = "_list_1akll_1",
     },
   ];
 var g, x;
-class lt extends i {
+class lt extends n {
   constructor() {
     super(ot);
     h(this, g);
@@ -300,55 +300,55 @@ class lt extends i {
   (x = function () {
     ct.forEach((e) => {
       const o = document.createElement("li"),
-        a = new i(e),
-        n = document.createElement("img");
-      (n.src = e.imgSrc),
-        a.getElement().prepend(n),
+        a = new n(e),
+        i = document.createElement("img");
+      (i.src = e.imgSrc),
+        a.getElement().prepend(i),
         o.append(a.getElement()),
         this.childs.push(o);
     });
   });
-const mt = "_header_oa50e_1",
-  ht = "_content_oa50e_11",
+const mt = "_header_1cvsd_1",
+  ht = "_content_1cvsd_11",
   C = { header: mt, content: ht },
   dt = { tagName: "header", classList: [C.header] },
   ut = { tagName: "div", classList: [C.content] };
-class gt extends i {
+class gt extends n {
   constructor() {
     super(dt),
       (this.listButtons = new lt()),
       (this.form = new at()),
       (this.burger = new z()),
-      (this.content = new i(ut)),
+      (this.content = new n(ut)),
       (this.content.childs = [this.burger, this.listButtons, this.form]),
       this.content._addChildsElement(),
       this.childs.push(this.content),
       this._addChildsElement();
   }
 }
-const pt = "_list_18csn_1",
-  bt = "_item_18csn_10",
-  Lt = "_img_18csn_25",
-  y = { list: pt, item: bt, img: Lt },
-  ft = { tagName: "ul", classList: [y.list] },
+const pt = "_list_y8oog_1",
+  bt = "_item_y8oog_10",
+  ft = "_img_y8oog_25",
+  y = { list: pt, item: bt, img: ft },
+  Lt = { tagName: "ul", classList: [y.list] },
   _t = { tagName: "li", classList: [y.item] },
   S = { tagName: "img", classList: [y.img], attr: {} };
 var p, H;
-class wt extends i {
+class wt extends n {
   constructor() {
-    super(ft);
+    super(Lt);
     h(this, p);
-    f(this, "data", []);
+    L(this, "data", []);
   }
   render() {
     c(this, p, H).call(this);
     const e = document.createDocumentFragment();
     this.data.length > 0 &&
       this.data.forEach((o) => {
-        const a = new i(_t);
+        const a = new n(_t);
         S.attr.src = o.urls.regular;
-        const n = new i(S);
-        a.getElement().append(n.getElement()),
+        const i = new n(S);
+        a.getElement().append(i.getElement()),
           e.append(a.getElement()),
           this.element.append(e);
       });
@@ -358,29 +358,29 @@ class wt extends i {
   (H = function () {
     this.element.innerHTML = "";
   });
-var d, b, k;
+var d, b, D;
 class yt {
   constructor() {
     h(this, b);
     h(this, d, document.body);
     (this.header = new gt()),
       (this.listImages = new wt()),
-      c(this, b, k).call(this);
+      c(this, b, D).call(this);
   }
 }
 (d = new WeakMap()),
   (b = new WeakSet()),
-  (k = function () {
+  (D = function () {
     _(this, d).append(this.header.getElement()),
       _(this, d).append(this.listImages.getElement());
   });
 class vt {
   constructor() {
-    (this.model = new O()),
+    (this.model = new k()),
       (this.view = new yt()),
-      (this.controller = new K(this.model, this.view));
+      (this.controller = new O(this.model, this.view));
   }
 }
 console.log(1);
 new vt();
-//# sourceMappingURL=index-DFURSiw5.js.map
+//# sourceMappingURL=index-D3s-AUPq.js.map
