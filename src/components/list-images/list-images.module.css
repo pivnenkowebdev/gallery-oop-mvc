@@ -7,6 +7,12 @@
   padding: 200px 15px 40px;
 }
 
+@media(max-width: 1024px) {
+  .list {
+    padding: 120px 15px 40px;
+  }
+}
+
 .item {
   width: 250px;
   height: 350px;
