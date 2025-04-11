@@ -41,14 +41,14 @@ const btnsParams = [
     classList: [style.btn],
     imgSrc: "japan.svg",
   },
-  {
-    tagName: "button",
-    attr: {
-      "data-btn": "ukraine",
-    },
-    classList: [style.btn],
-    imgSrc: "ukraine.svg",
-  },
+  // {
+  //   tagName: "button",
+  //   attr: {
+  //     "data-btn": "ukraine",
+  //   },
+  //   classList: [style.btn],
+  //   imgSrc: "ukraine.svg",
+  // },
   {
     tagName: "button",
     attr: {

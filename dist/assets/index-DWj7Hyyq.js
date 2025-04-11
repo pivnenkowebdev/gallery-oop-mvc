@@ -1,17 +1,17 @@
-var F = Object.defineProperty;
+var K = Object.defineProperty;
 var E = (s) => {
   throw TypeError(s);
 };
-var K = (s, t, e) =>
+var O = (s, t, e) =>
   t in s
-    ? F(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e })
+    ? K(s, t, { enumerable: !0, configurable: !0, writable: !0, value: e })
     : (s[t] = e);
-var L = (s, t, e) => K(s, typeof t != "symbol" ? t + "" : t, e),
+var _ = (s, t, e) => O(s, typeof t != "symbol" ? t + "" : t, e),
   N = (s, t, e) => t.has(s) || E("Cannot " + e);
-var _ = (s, t, e) => (
+var g = (s, t, e) => (
     N(s, t, "read from private field"), e ? e.call(s) : t.get(s)
   ),
-  h = (s, t, e) =>
+  d = (s, t, e) =>
     t.has(s)
       ? E("Cannot add the same private member more than once")
       : t instanceof WeakSet
@@ -21,37 +21,37 @@ var c = (s, t, e) => (N(s, t, "access private method"), e);
 (function () {
   const t = document.createElement("link").relList;
   if (t && t.supports && t.supports("modulepreload")) return;
-  for (const a of document.querySelectorAll('link[rel="modulepreload"]')) o(a);
+  for (const a of document.querySelectorAll('link[rel="modulepreload"]')) r(a);
   new MutationObserver((a) => {
-    for (const i of a)
-      if (i.type === "childList")
-        for (const f of i.addedNodes)
-          f.tagName === "LINK" && f.rel === "modulepreload" && o(f);
+    for (const n of a)
+      if (n.type === "childList")
+        for (const f of n.addedNodes)
+          f.tagName === "LINK" && f.rel === "modulepreload" && r(f);
   }).observe(document, { childList: !0, subtree: !0 });
   function e(a) {
-    const i = {};
+    const n = {};
     return (
-      a.integrity && (i.integrity = a.integrity),
-      a.referrerPolicy && (i.referrerPolicy = a.referrerPolicy),
+      a.integrity && (n.integrity = a.integrity),
+      a.referrerPolicy && (n.referrerPolicy = a.referrerPolicy),
       a.crossOrigin === "use-credentials"
-        ? (i.credentials = "include")
+        ? (n.credentials = "include")
         : a.crossOrigin === "anonymous"
-          ? (i.credentials = "omit")
-          : (i.credentials = "same-origin"),
-      i
+          ? (n.credentials = "omit")
+          : (n.credentials = "same-origin"),
+      n
     );
   }
-  function o(a) {
+  function r(a) {
     if (a.ep) return;
     a.ep = !0;
-    const i = e(a);
-    fetch(a.href, i);
+    const n = e(a);
+    fetch(a.href, n);
   }
 })();
 var m, P, B, A;
-class O {
+class q {
   constructor(t, e) {
-    h(this, m);
+    d(this, m);
     (this.model = t),
       (this.view = e),
       (this.view.header.form.input.element.value = this.model.defaultValue),
@@ -59,8 +59,10 @@ class O {
       this.queryHelper(this.model.defaultValue);
   }
   async queryHelper(t) {
-    (this.view.listImages.data = await this.model.getData(t)),
-      this.view.listImages.render();
+    this.view.addLoader(),
+      (this.view.listImages.data = await this.model.getData(t)),
+      this.view.listImages.render(),
+      this.view.removeLoader();
   }
   async btnChoiceHandler(t) {
     const e = t.target.closest("[data-btn]");
@@ -88,41 +90,43 @@ class O {
   }),
   (A = async function (t) {
     const e = new FormData(t.target).get("search");
-    return await this.model.getData(e);
+    this.view.addLoader();
+    const r = await this.model.getData(e);
+    return this.view.removeLoader(), r;
   });
-class k {
+class U {
   constructor() {
-    L(this, "defaultValue", "food");
+    _(this, "defaultValue", "food");
     (this.API_KEY = "GhKsB5sAtKrUEiAAWKJYM56CueNnuUoIms_7HaILTUw"),
       (this.BASE_URL = "https://api.unsplash.com/search/photos");
   }
   async getData(t) {
     try {
       const e = `${this.BASE_URL}?client_id=${this.API_KEY}&query=${t}&per_page=20&orientation=portrait`,
-        o = await fetch(e, { method: "GET" });
-      if (!o.ok) throw new Error(`Ошибка ${o.status}: ${o.statusText}`);
-      return (await o.json()).results;
+        r = await fetch(e, { method: "GET" });
+      if (!r.ok) throw new Error(`Ошибка ${r.status}: ${r.statusText}`);
+      return (await r.json()).results;
     } catch (e) {
       return console.error("Ошибка при получении данных:", e), null;
     }
   }
 }
-var l, I, M, T, $;
-const v = class v {
+var l, I, x, T, $;
+const y = class y {
   constructor(t) {
-    h(this, l);
+    d(this, l);
     (this.parametrs = t),
       (this.element = c(this, l, I).call(this)),
       (this.childs = []),
       this.element &&
-        (c(this, l, M).call(this),
+        (c(this, l, x).call(this),
         c(this, l, T).call(this),
         c(this, l, $).call(this));
   }
   _addChildsElement() {
     Array.isArray(this.childs) &&
       this.childs.forEach((t) => {
-        t instanceof v
+        t instanceof y
           ? this.element.append(t.getElement())
           : t instanceof HTMLElement && this.element.append(t);
       });
@@ -137,7 +141,7 @@ const v = class v {
       ? document.createElement(this.parametrs.tagName)
       : null;
   }),
-  (M = function () {
+  (x = function () {
     this.element &&
       Array.isArray(this.parametrs.classList) &&
       this.element.classList.add(...this.parametrs.classList);
@@ -152,29 +156,29 @@ const v = class v {
       this.parametrs.text &&
       (this.element.innerText = this.parametrs.text);
   });
-let n = v;
-const q = "_burger_14bdh_1",
-  U = "_burgerTopLine_14bdh_16",
-  V = "_burgerMiddleLine_14bdh_17",
-  j = "_burgerBottomLine_14bdh_18",
-  Y = "_open_14bdh_47",
+let i = y;
+const V = "_burger_14bdh_1",
+  j = "_burgerTopLine_14bdh_16",
+  k = "_burgerMiddleLine_14bdh_17",
+  Y = "_burgerBottomLine_14bdh_18",
+  z = "_open_14bdh_47",
   u = {
-    burger: q,
-    burgerTopLine: U,
-    burgerMiddleLine: V,
-    burgerBottomLine: j,
-    open: Y,
+    burger: V,
+    burgerTopLine: j,
+    burgerMiddleLine: k,
+    burgerBottomLine: Y,
+    open: z,
   },
   G = { tagName: "button", attr: { id: "burger" }, classList: [u.burger] },
   R = { tagName: "span", classList: [u.burgerTopLine] },
   J = { tagName: "span", classList: [u.burgerMiddleLine] },
   W = { tagName: "span", classList: [u.burgerBottomLine] };
-class z extends n {
+class Q extends i {
   constructor() {
     super(G),
-      (this.topLine = new n(R)),
-      (this.middleLine = new n(J)),
-      (this.bottomLine = new n(W)),
+      (this.topLine = new i(R)),
+      (this.middleLine = new i(J)),
+      (this.bottomLine = new i(W)),
       (this.childs = [this.topLine, this.middleLine, this.bottomLine]),
       this._addChildsElement();
   }
@@ -182,205 +186,228 @@ class z extends n {
     this.element.classList.toggle(u.open);
   }
 }
-const Q = "_form_1if6l_1",
-  X = "_input_1if6l_17",
-  Z = "_btn_1if6l_42",
-  w = { form: Q, input: X, btn: Z },
-  tt = { tagName: "form", classList: [w.form] },
-  et = {
+const X = "_form_1if6l_1",
+  Z = "_input_1if6l_17",
+  tt = "_btn_1if6l_42",
+  w = { form: X, input: Z, btn: tt },
+  et = { tagName: "form", classList: [w.form] },
+  st = {
     tagName: "input",
     classList: [w.input],
     attr: { placeholder: "Search...", name: "search" },
   },
-  st = {
+  at = {
     tagName: "input",
     classList: [w.btn],
     attr: { type: "submit", value: "" },
   };
-class at extends n {
+class it extends i {
   constructor() {
-    super(tt),
-      (this.input = new n(et)),
-      (this.btnSubmit = new n(st)),
+    super(et),
+      (this.input = new i(st)),
+      (this.btnSubmit = new i(at)),
       (this.childs = [this.input, this.btnSubmit]),
       this._addChildsElement();
   }
 }
-const it = "_list_ffwoa_1",
-  nt = "_open_ffwoa_22",
-  rt = "_btn_ffwoa_40",
-  r = { list: it, open: nt, btn: rt },
-  ot = { tagName: "ul", attr: { id: "listButtons" }, classList: [r.list] },
-  ct = [
+const nt = "_list_ffwoa_1",
+  rt = "_open_ffwoa_22",
+  ot = "_btn_ffwoa_40",
+  o = { list: nt, open: rt, btn: ot },
+  ct = { tagName: "ul", attr: { id: "listButtons" }, classList: [o.list] },
+  lt = [
     {
       tagName: "button",
       attr: { "data-btn": "russia" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "russia.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "israel" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "israel.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "georgia" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "georgia.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "japan" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "japan.svg",
     },
     {
       tagName: "button",
-      attr: { "data-btn": "ukraine" },
-      classList: [r.btn],
-      imgSrc: "ukraine.svg",
-    },
-    {
-      tagName: "button",
       attr: { "data-btn": "britain" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "britain.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "india" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "india.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "korea" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "korea.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "turkey" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "turkey.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "china" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "china.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "egypt" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "egypt.svg",
     },
     {
       tagName: "button",
       attr: { "data-btn": "greece" },
-      classList: [r.btn],
+      classList: [o.btn],
       imgSrc: "greece.svg",
     },
   ];
-var g, x;
-class lt extends n {
+var p, M;
+class mt extends i {
   constructor() {
-    super(ot);
-    h(this, g);
-    (this.childs = []), c(this, g, x).call(this), this._addChildsElement();
+    super(ct);
+    d(this, p);
+    (this.childs = []), c(this, p, M).call(this), this._addChildsElement();
   }
   show() {
-    this.element.classList.toggle(r.open);
+    this.element.classList.toggle(o.open);
   }
 }
-(g = new WeakSet()),
-  (x = function () {
-    ct.forEach((e) => {
-      const o = document.createElement("li"),
-        a = new n(e),
-        i = document.createElement("img");
-      (i.src = e.imgSrc),
-        a.getElement().prepend(i),
-        o.append(a.getElement()),
-        this.childs.push(o);
+(p = new WeakSet()),
+  (M = function () {
+    lt.forEach((e) => {
+      const r = document.createElement("li"),
+        a = new i(e),
+        n = document.createElement("img");
+      (n.src = e.imgSrc),
+        a.getElement().prepend(n),
+        r.append(a.getElement()),
+        this.childs.push(r);
     });
   });
-const mt = "_header_1cvsd_1",
+const dt = "_header_1cvsd_1",
   ht = "_content_1cvsd_11",
-  C = { header: mt, content: ht },
-  dt = { tagName: "header", classList: [C.header] },
-  ut = { tagName: "div", classList: [C.content] };
-class gt extends n {
+  C = { header: dt, content: ht },
+  ut = { tagName: "header", classList: [C.header] },
+  gt = { tagName: "div", classList: [C.content] };
+class pt extends i {
   constructor() {
-    super(dt),
-      (this.listButtons = new lt()),
-      (this.form = new at()),
-      (this.burger = new z()),
-      (this.content = new n(ut)),
+    super(ut),
+      (this.listButtons = new mt()),
+      (this.form = new it()),
+      (this.burger = new Q()),
+      (this.content = new i(gt)),
       (this.content.childs = [this.burger, this.listButtons, this.form]),
       this.content._addChildsElement(),
       this.childs.push(this.content),
       this._addChildsElement();
   }
 }
-const pt = "_list_h1y3p_1",
-  bt = "_item_h1y3p_16",
+const bt = "_list_h1y3p_1",
+  Lt = "_item_h1y3p_16",
   ft = "_img_h1y3p_31",
-  y = { list: pt, item: bt, img: ft },
-  Lt = { tagName: "ul", classList: [y.list] },
-  _t = { tagName: "li", classList: [y.item] },
-  S = { tagName: "img", classList: [y.img], attr: {} };
-var p, H;
-class wt extends n {
+  v = { list: bt, item: Lt, img: ft },
+  _t = { tagName: "ul", classList: [v.list] },
+  wt = { tagName: "li", classList: [v.item] },
+  S = { tagName: "img", classList: [v.img], attr: {} };
+var b, H;
+class vt extends i {
   constructor() {
-    super(Lt);
-    h(this, p);
-    L(this, "data", []);
+    super(_t);
+    d(this, b);
+    _(this, "data", []);
   }
   render() {
-    c(this, p, H).call(this);
+    c(this, b, H).call(this);
     const e = document.createDocumentFragment();
     this.data.length > 0 &&
-      this.data.forEach((o) => {
-        const a = new n(_t);
-        S.attr.src = o.urls.regular;
-        const i = new n(S);
-        a.getElement().append(i.getElement()),
+      this.data.forEach((r) => {
+        const a = new i(wt);
+        S.attr.src = r.urls.regular;
+        const n = new i(S);
+        a.getElement().append(n.getElement()),
           e.append(a.getElement()),
           this.element.append(e);
       });
   }
 }
-(p = new WeakSet()),
+(b = new WeakSet()),
   (H = function () {
     this.element.innerHTML = "";
   });
-var d, b, D;
-class yt {
+const yt = "_fade_rz7rx_1",
+  Et = "_imgLoad_rz7rx_11",
+  D = { fade: yt, imgLoad: Et },
+  Nt = { tagName: "div", classList: [D.fade] },
+  St = {
+    tagName: "img",
+    attr: { src: "gif-load.gif" },
+    classList: [D.imgLoad],
+  };
+class Pt extends i {
   constructor() {
-    h(this, b);
-    h(this, d, document.body);
-    (this.header = new gt()),
-      (this.listImages = new wt()),
-      c(this, b, D).call(this);
+    super(Nt),
+      (this.imgLoad = new i(St)),
+      this.childs.push(this.imgLoad),
+      this._addChildsElement();
+  }
+  removeElement() {
+    this.element.remove();
   }
 }
-(d = new WeakMap()),
-  (b = new WeakSet()),
-  (D = function () {
-    _(this, d).append(this.header.getElement()),
-      _(this, d).append(this.listImages.getElement());
-  });
-class vt {
+var h, L, F;
+class Bt {
   constructor() {
-    (this.model = new k()),
-      (this.view = new yt()),
-      (this.controller = new O(this.model, this.view));
+    d(this, L);
+    d(this, h, document.body);
+    (this.header = new pt()),
+      (this.listImages = new vt()),
+      (this.loader = new Pt()),
+      c(this, L, F).call(this);
+  }
+  addLoader() {
+    g(this, h).append(this.loader.getElement());
+  }
+  removeLoader() {
+    setTimeout(() => {
+      this.loader.removeElement();
+    }, 1e3);
+  }
+}
+(h = new WeakMap()),
+  (L = new WeakSet()),
+  (F = function () {
+    g(this, h).append(this.header.getElement()),
+      g(this, h).append(this.listImages.getElement());
+  });
+class At {
+  constructor() {
+    (this.model = new U()),
+      (this.view = new Bt()),
+      (this.controller = new q(this.model, this.view));
   }
 }
 console.log(1);
-new vt();
-//# sourceMappingURL=index-BcjXkfku.js.map
+new At();
+//# sourceMappingURL=index-DWj7Hyyq.js.map
